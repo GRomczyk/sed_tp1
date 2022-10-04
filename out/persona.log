@@ -1,0 +1,4 @@
+[logfiles]
+ParallelRoot : ./out/persona.log00 
+top : ./out/persona.log02 
+p1 : ./out/persona.log01 
