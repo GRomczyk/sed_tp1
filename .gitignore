@@ -1,5 +1,5 @@
 out/*
-#src/bin/*
+src/bin/*
 .ipynb_checkpoints
 src/.ipynb_checkpoints
 out/.ipynb_checkpoints
