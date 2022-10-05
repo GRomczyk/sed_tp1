@@ -75,7 +75,7 @@ Model &Medio::externalFunction(const ExternalMessage &msg)
 ********************************************************************/
 Model &Medio::internalFunction(const InternalMessage &msg )
 {
-	holdIn(AtomicState::active, VTime(0,periodo,0,0));
+	holdIn(AtomicState::active, VTime(periodo,0,0,0));
 	return *this ;
 }
 
