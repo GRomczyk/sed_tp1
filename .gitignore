@@ -4,4 +4,7 @@ src/bin/*
 src/.ipynb_checkpoints
 out/.ipynb_checkpoints
 model/.ipynb_checkpoints
+tests/*
+!tests/*.ma
+!tests/*.out
 !out/*.out
