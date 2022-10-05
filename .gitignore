@@ -1,4 +1,7 @@
 out/*
 src/bin/*
 .ipynb_checkpoints
+src/.ipynb_checkpoints
+out/.ipynb_checkpoints
+model/.ipynb_checkpoints
 !out/*.out
