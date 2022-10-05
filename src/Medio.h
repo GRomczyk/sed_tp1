@@ -17,10 +17,11 @@
 #include "atomicstate.h"	// class AtomicState
 #include "except.h"     	// class InvalidMessageException
 #include "real.h"
+#include "tuple_value.h"
 
 #include "VTime.h"
 
-#define ATOMIC_MODEL_NAME_MEDIO "Medio"
+#define ATOMIC_MODEL_NAME "Medio"
 
 
 /** forward declarations **/
@@ -31,16 +32,14 @@ class Medio : public Atomic {
 
 	public :
 
-		Medio( const std::string &name = ATOMIC_MODEL_NAME_MEDIO); // Default constructor
-
-		virtual string className() const {return ATOMIC_MODEL_NAME_MEDIO;}
+		Medio( const std::string &name = ATOMIC_MODEL_NAME); // Default constructor
 
 		~Medio(); 
     
 	protected:
 		Model &initFunction() ;
 
-		Model &externalFunction( const ExternalMessage & );
+		//Model &externalFunction( const ExternalMessage & );
 
 		Model &internalFunction( const InternalMessage & );
 
@@ -56,9 +55,10 @@ class Medio : public Atomic {
 		* Distribution &distribution()	{ return *dist; }
 		**************************************************************************/
 
-		Real P;
+		float P;
+		Real PoderDeConvencimiento;
 		Port &out ;
-		//VTime frequency_time;
+
 		int periodo;
             
 		Distribution *randomP;
