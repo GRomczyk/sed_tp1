@@ -7,4 +7,5 @@ model/.ipynb_checkpoints
 tests/*
 !tests/*.ma
 !tests/*.out
+!tests/*.ev
 !out/*.out
