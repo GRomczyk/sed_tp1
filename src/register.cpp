@@ -6,7 +6,7 @@
 
 void register_atomics_on(ParallelModelAdmin &admin)
 {
-	admin.registerAtomic(NewAtomicFunction< Medio >(), ATOMIC_MODEL_NAME);
-	admin.registerAtomic(NewAtomicFunction< Persona >(), ATOMIC_MODEL_NAME); // Register custom models
+	admin.registerAtomic(NewAtomicFunction< Medio >(), ATOMIC_MODEL_NAME_MEDIO);
+	admin.registerAtomic(NewAtomicFunction< Persona >(), ATOMIC_MODEL_NAME_PERSONA); // Register custom models
 }
 

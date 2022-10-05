@@ -6,7 +6,7 @@
 #include "atomic.h"  // class Atomic
 #include "VTime.h"
 
-#define ATOMIC_MODEL_NAME "Persona" // cambiar nombre
+#define ATOMIC_MODEL_NAME_PERSONA "Persona" // cambiar nombre
 
 /** forward declarations **/
 //TODO: add distribution class declaration here if needed
@@ -16,9 +16,9 @@ class Distribution ;
 /** declarations **/
 class Persona: public Atomic {
 	public:
-		Persona( const string &name = ATOMIC_MODEL_NAME ); // Default constructor
+		Persona( const string &name = ATOMIC_MODEL_NAME_PERSONA ); // Default constructor
 		~Persona(); // Destructor
-		virtual string className() const {return ATOMIC_MODEL_NAME;}
+		virtual string className() const {return ATOMIC_MODEL_NAME_PERSONA;}
 	
 	protected:
 		Model &initFunction();	

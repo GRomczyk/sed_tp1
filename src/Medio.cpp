@@ -36,7 +36,7 @@ Medio::Medio(const string &name)
 		}    */    
                 
         
-	P= str2Int( ParallelMainSimulator::Instance().getParameter( description(), "P" ) ); 
+	P= str2Real( ParallelMainSimulator::Instance().getParameter( description(), "P" ) ); 
 
 	periodo= str2Int( ParallelMainSimulator::Instance().getParameter( description(), "Periodo_de_emision" ) );
 	//this -> frequency_time(0.0,periodo,0);
@@ -63,17 +63,12 @@ Model &Medio::initFunction()
 /*******************************************************************
 * Function Name: externalFuntion
 ********************************************************************/
-/*
+
 Model &Medio::externalFunction(const ExternalMessage &msg)
 {
-	if (msg.port() == this->infoRequest){
-		this->pidieronInfo = true;
-		holdIn(AtomicState::active, VTime::Zero);
-	}      
-
 	return *this;
 }
-*/
+
 /*******************************************************************
 * Function Name: internalFunction
 ********************************************************************/

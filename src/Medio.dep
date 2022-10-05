@@ -1,15 +1,13 @@
-${OBJ_DIR}/register.o register.dep : register.cpp ../../../src/cd++/model/pmodeladm.h \
- ../../../src/cd++/utils/strutil.h ../../../src/cd++/val/real.h \
- ../../../src/cd++/val/undefd.h ../../../src/cd++/utils/impresion.h \
- ../../../src/cd++/val/value.h ../../../src/cd++/val/tbool.h \
- ../../../src/cd++/misc/except.h ../../../src/cd++/utils/stringp.h \
- ../../../src/cd++/val/real.h ../../../src/cd++/utils/evaldeb.h \
- ../../../src/cd++/misc/modelid.h ../../../src/cd++/cell/cellpos.h \
- ../../../src/cd++/utils/ntupla.h ../../../src/cd++/sim/register.h \
- Medio.h ../../../src/cd++/model/atomic.h ../../../src/cd++/model/model.h \
- ../../../src/cd++/misc/machineid.h ../../../src/cd++/model/port.h \
- ../../../src/cd++/model/pmodeladm.h \
- ../../../src/cd++/warped/common/VTime.h \
+${OBJ_DIR}/Medio.o Medio.dep : Medio.cpp Medio.h ../../../src/cd++/model/atomic.h \
+ ../../../src/cd++/model/model.h ../../../src/cd++/misc/machineid.h \
+ ../../../src/cd++/model/port.h ../../../src/cd++/misc/modelid.h \
+ ../../../src/cd++/model/pmodeladm.h ../../../src/cd++/utils/strutil.h \
+ ../../../src/cd++/val/real.h ../../../src/cd++/val/undefd.h \
+ ../../../src/cd++/utils/impresion.h ../../../src/cd++/val/value.h \
+ ../../../src/cd++/val/tbool.h ../../../src/cd++/misc/except.h \
+ ../../../src/cd++/utils/stringp.h ../../../src/cd++/val/real.h \
+ ../../../src/cd++/utils/evaldeb.h ../../../src/cd++/cell/cellpos.h \
+ ../../../src/cd++/utils/ntupla.h ../../../src/cd++/warped/common/VTime.h \
  ../../../src/cd++/cell/portlist.h ../../../src/cd++/model/port.h \
  ../../../src/cd++/cell/cellpos.h ../../../src/cd++/val/value.h \
  ../../../src/cd++/proc/pprocadm.h ../../../src/cd++/proc/pprocess.h \
@@ -45,4 +43,5 @@ ${OBJ_DIR}/register.o register.dep : register.cpp ../../../src/cd++/model/pmodel
  ../../../src/cd++/warped/notime/KernelMsgs.h \
  ../../../src/cd++/warped/notime/InputQueue.h \
  ../../../src/cd++/proc/process.h ../../../src/cd++/proc/pprocess.h \
- ../../../src/cd++/val/tuple_value.h Persona.h
+ ../../../src/cd++/val/tuple_value.h ../../../src/cd++/misc/math/distri.h \
+ ../../../src/cd++/misc/math/realfunc.h
