@@ -90,7 +90,7 @@ Model &Medio::outputFunction(const CollectMessage &msg )
 {
     
 	
-	if(this-> P == 2){
+	if(this-> P == 0){
 		Real randomN = this->randomP->get();
 		Real ent = round(randomN);                     // entero mas cercano
 		if( randomN>1 || ent == 1 ) randomN =1;
