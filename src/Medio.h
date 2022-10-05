@@ -21,7 +21,7 @@
 
 #include "VTime.h"
 
-#define ATOMIC_MODEL_NAME "Medio"
+#define ATOMIC_MODEL_NAME_MEDIO "Medio"
 
 
 /** forward declarations **/
@@ -32,7 +32,7 @@ class Medio : public Atomic {
 
 	public :
 
-		Medio( const std::string &name = ATOMIC_MODEL_NAME); // Default constructor
+		Medio( const std::string &name = ATOMIC_MODEL_NAME_MEDIO); // Default constructor
 
 		~Medio(); 
     

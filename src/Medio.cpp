@@ -28,24 +28,20 @@ Medio::Medio(const string &name)
 	: Atomic( name ),
 	out(addOutputPort("out"))
 {         
-/*
-		if( ParallelMainSimulator::Instance().existsParameter( description(), "P" ) )
-			P= str2Int( ParallelMainSimulator::Instance().getParameter( description(), "P" ) );
-		else{
-			P = 0;
-		}    */    
-                
-        
-	P= str2Real( ParallelMainSimulator::Instance().getParameter( description(), "P" ) ); 
+	P = str2float( ParallelMainSimulator::Instance().getParameter( description(), "P" ) );
+
+	PoderDeConvencimiento = str2Real( ParallelMainSimulator::Instance().getParameter( description(), "Poder_de_convencimiento" ) );         
 
 	periodo= str2Int( ParallelMainSimulator::Instance().getParameter( description(), "Periodo_de_emision" ) );
-	//this -> frequency_time(0.0,periodo,0);
-        
-	if(P == 0){
-		randomP = Distribution::create( "normal" );    
-		randomP -> setVar(-1,1);
+
+	randomP = Distribution::create( "normal" ); 
+ 	randomP -> setVar(0,this -> P); // media = P
+	if(P != 0){    
+		randomP -> setVar(1, 0.1); // varianaza = 0.1
+	} else { // P == 0   
+		randomP -> setVar(1, 0.5); // varianza = 0.5
 	}
-        
+    
 }
 
 
@@ -55,7 +51,7 @@ Medio::Medio(const string &name)
 Model &Medio::initFunction()
 {
 
-	holdIn(AtomicState::active, VTime(0,0,periodo,0));
+	holdIn(AtomicState::active, VTime(0,periodo,0,0));
 	return *this ;
 }
 
@@ -63,18 +59,23 @@ Model &Medio::initFunction()
 /*******************************************************************
 * Function Name: externalFuntion
 ********************************************************************/
-
+/*
 Model &Medio::externalFunction(const ExternalMessage &msg)
 {
+	if (msg.port() == this->infoRequest){
+		this->pidieronInfo = true;
+		holdIn(AtomicState::active, VTime::Zero);
+	}      
+
 	return *this;
 }
-
+*/
 /*******************************************************************
 * Function Name: internalFunction
 ********************************************************************/
 Model &Medio::internalFunction(const InternalMessage &msg )
 {
-	holdIn(AtomicState::active, VTime(0,0,periodo,0));
+	holdIn(AtomicState::active, VTime(0,periodo,0,0));
 	return *this ;
 }
 
@@ -84,16 +85,25 @@ Model &Medio::internalFunction(const InternalMessage &msg )
 Model &Medio::outputFunction(const CollectMessage &msg )
 {
     
-	
-	if(this-> P == 0){
-		Real randomN = this->randomP->get();
-		Real ent = round(randomN);                     // entero mas cercano
-		if( randomN>1 || ent == 1 ) randomN =1;
-		if( randomN < -1 || ent == -1 ) randomN =-1;
-		sendOutput(msg.time(), out, randomN);
-	} else {
-		sendOutput( msg.time(), out, this->P );
-	}     
+	Real randomN = this->randomP->get();
+    
+	if(this-> P == 0.0){  // Medio neutral                  
+		if( randomN > 1.0 ) randomN =1;
+		if( randomN < -1.0 ) randomN =-1;
+		Tuple<Real> out_value{ randomN , this -> PoderDeConvencimiento };    
+		sendOutput(msg.time(), out, out_value);
+	} else if (this -> P > 0.0){// Medio a favor
+		if( randomN>1.0 ) randomN =1;
+		if( randomN < 0.0) randomN = 0;
+		Tuple<Real> out_value{ randomN , this -> PoderDeConvencimiento };
+		sendOutput( msg.time(), out, out_value );
+	} else {                    //Medio en contra
+		if( randomN>0.0  ) randomN = 0.0;
+		if( randomN < -1.0 ) randomN =-1;
+		Tuple<Real> out_value{ randomN , this -> PoderDeConvencimiento };
+		sendOutput( msg.time(), out, out_value );    
+	}    
+    
 	return *this ;
     
 }
