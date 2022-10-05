@@ -1,3 +1,4 @@
 out/*
 src/bin/*
+.ipynb_checkpoints
 !out/*.out
