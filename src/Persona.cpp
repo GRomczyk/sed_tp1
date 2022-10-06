@@ -130,7 +130,7 @@ Model &Persona::externalFunction( const ExternalMessage &msg )
 				//si el mensaje vino por el puerto de medios, me fijo si lo veo o no
 				bool veoNoticia = Real(this->distMiroNoticia(generator)) < probabilidadDeMirarNoticia(pMensaje);
 				if(veoNoticia){
-					this->p = nuevoP(pMensaje, 1.0);
+					this->p = nuevoP(pMensaje, pcMensaje);
 				}
 				if(this->grado > 0){
 					holdIn( AtomicState::active, VTime( static_cast< float >( this->distCuandoHablo->get())));
