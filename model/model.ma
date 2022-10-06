@@ -1,9 +1,6 @@
 [Top]
 components : Sociedad
 components : generador@Generator
-components : Medio0@Medio
-components : Medio1@Medio
-components : Medio2@Medio
 out : info_out0
 out : info_out1
 out : info_out2
@@ -65,9 +62,6 @@ Link : info_out26@Sociedad info_out26
 Link : info_out27@Sociedad info_out27
 Link : info_out28@Sociedad info_out28
 Link : info_out29@Sociedad info_out29
-Link : out@Medio0 inMedios@Sociedad
-Link : out@Medio1 inMedios@Sociedad
-Link : out@Medio2 inMedios@Sociedad
 
 [Sociedad]
 components: Persona0@Persona
@@ -222,341 +216,337 @@ Link : inMedios inMedios@Persona28
 Link : outInfo@Persona29 info_out29
 Link : infoRequest infoRequest@Persona29
 Link : inMedios inMedios@Persona29
-Link : outPort1@Persona0 inPort1@Persona25
-Link : outPort1@Persona25 inPort1@Persona0
-Link : outPort2@Persona0 inPort1@Persona2
-Link : outPort1@Persona2 inPort2@Persona0
-Link : outPort1@Persona1 inPort1@Persona8
-Link : outPort1@Persona8 inPort1@Persona1
-Link : outPort2@Persona1 inPort1@Persona19
-Link : outPort1@Persona19 inPort2@Persona1
-Link : outPort3@Persona1 inPort1@Persona22
-Link : outPort1@Persona22 inPort3@Persona1
-Link : outPort4@Persona1 inPort1@Persona14
-Link : outPort1@Persona14 inPort4@Persona1
-Link : outPort5@Persona1 inPort1@Persona5
-Link : outPort1@Persona5 inPort5@Persona1
-Link : outPort2@Persona2 inPort1@Persona11
-Link : outPort1@Persona11 inPort2@Persona2
-Link : outPort3@Persona2 inPort2@Persona5
-Link : outPort2@Persona5 inPort3@Persona2
-Link : outPort4@Persona2 inPort2@Persona25
-Link : outPort2@Persona25 inPort4@Persona2
-Link : outPort1@Persona3 inPort1@Persona26
-Link : outPort1@Persona26 inPort1@Persona3
-Link : outPort2@Persona3 inPort2@Persona19
-Link : outPort2@Persona19 inPort2@Persona3
-Link : outPort3@Persona3 inPort1@Persona15
-Link : outPort1@Persona15 inPort3@Persona3
-Link : outPort4@Persona3 inPort3@Persona25
-Link : outPort3@Persona25 inPort4@Persona3
-Link : outPort5@Persona3 inPort1@Persona17
-Link : outPort1@Persona17 inPort5@Persona3
-Link : outPort1@Persona4 inPort1@Persona7
-Link : outPort1@Persona7 inPort1@Persona4
-Link : outPort2@Persona4 inPort1@Persona29
-Link : outPort1@Persona29 inPort2@Persona4
-Link : outPort3@Persona4 inPort2@Persona17
-Link : outPort2@Persona17 inPort3@Persona4
-Link : outPort3@Persona5 inPort3@Persona19
-Link : outPort3@Persona19 inPort3@Persona5
-Link : outPort1@Persona6 inPort1@Persona28
-Link : outPort1@Persona28 inPort1@Persona6
-Link : outPort2@Persona6 inPort2@Persona29
-Link : outPort2@Persona29 inPort2@Persona6
-Link : outPort2@Persona7 inPort4@Persona25
-Link : outPort4@Persona25 inPort2@Persona7
-Link : outPort3@Persona7 inPort2@Persona14
-Link : outPort2@Persona14 inPort3@Persona7
-Link : outPort2@Persona8 inPort3@Persona29
-Link : outPort3@Persona29 inPort2@Persona8
-Link : outPort1@Persona10 inPort2@Persona26
-Link : outPort2@Persona26 inPort1@Persona10
-Link : outPort2@Persona10 inPort3@Persona14
-Link : outPort3@Persona14 inPort2@Persona10
-Link : outPort2@Persona11 inPort1@Persona23
-Link : outPort1@Persona23 inPort2@Persona11
-Link : outPort3@Persona11 inPort4@Persona29
-Link : outPort4@Persona29 inPort3@Persona11
-Link : outPort1@Persona12 inPort4@Persona14
-Link : outPort4@Persona14 inPort1@Persona12
-Link : outPort2@Persona12 inPort1@Persona13
-Link : outPort1@Persona13 inPort2@Persona12
-Link : outPort3@Persona12 inPort3@Persona17
-Link : outPort3@Persona17 inPort3@Persona12
-Link : outPort4@Persona12 inPort1@Persona18
-Link : outPort1@Persona18 inPort4@Persona12
-Link : outPort5@Persona12 inPort1@Persona24
-Link : outPort1@Persona24 inPort5@Persona12
-Link : outPort5@Persona14 inPort2@Persona18
-Link : outPort2@Persona18 inPort5@Persona14
-Link : outPort4@Persona17 inPort1@Persona20
-Link : outPort1@Persona20 inPort4@Persona17
-Link : outPort3@Persona18 inPort5@Persona25
-Link : outPort5@Persona25 inPort3@Persona18
-Link : outPort4@Persona18 inPort2@Persona23
-Link : outPort2@Persona23 inPort4@Persona18
-Link : outPort4@Persona19 inPort1@Persona21
-Link : outPort1@Persona21 inPort4@Persona19
-Link : outPort5@Persona19 inPort2@Persona28
-Link : outPort2@Persona28 inPort5@Persona19
-Link : outPort2@Persona22 inPort5@Persona29
-Link : outPort5@Persona29 inPort2@Persona22
+Link : outPort1@Persona0 inPort1@Persona14
+Link : outPort1@Persona14 inPort1@Persona0
+Link : outPort2@Persona0 inPort1@Persona11
+Link : outPort1@Persona11 inPort2@Persona0
+Link : outPort1@Persona1 inPort1@Persona26
+Link : outPort1@Persona26 inPort1@Persona1
+Link : outPort2@Persona1 inPort1@Persona23
+Link : outPort1@Persona23 inPort2@Persona1
+Link : outPort1@Persona2 inPort1@Persona18
+Link : outPort1@Persona18 inPort1@Persona2
+Link : outPort2@Persona2 inPort1@Persona25
+Link : outPort1@Persona25 inPort2@Persona2
+Link : outPort3@Persona2 inPort1@Persona13
+Link : outPort1@Persona13 inPort3@Persona2
+Link : outPort1@Persona3 inPort1@Persona17
+Link : outPort1@Persona17 inPort1@Persona3
+Link : outPort2@Persona3 inPort1@Persona12
+Link : outPort1@Persona12 inPort2@Persona3
+Link : outPort3@Persona3 inPort1@Persona19
+Link : outPort1@Persona19 inPort3@Persona3
+Link : outPort4@Persona3 inPort1@Persona21
+Link : outPort1@Persona21 inPort4@Persona3
+Link : outPort1@Persona4 inPort1@Persona16
+Link : outPort1@Persona16 inPort1@Persona4
+Link : outPort2@Persona4 inPort1@Persona24
+Link : outPort1@Persona24 inPort2@Persona4
+Link : outPort3@Persona4 inPort1@Persona9
+Link : outPort1@Persona9 inPort3@Persona4
+Link : outPort4@Persona4 inPort2@Persona13
+Link : outPort2@Persona13 inPort4@Persona4
+Link : outPort1@Persona5 inPort2@Persona25
+Link : outPort2@Persona25 inPort1@Persona5
+Link : outPort2@Persona5 inPort2@Persona9
+Link : outPort2@Persona9 inPort2@Persona5
+Link : outPort3@Persona5 inPort2@Persona19
+Link : outPort2@Persona19 inPort3@Persona5
+Link : outPort1@Persona6 inPort1@Persona15
+Link : outPort1@Persona15 inPort1@Persona6
+Link : outPort1@Persona7 inPort1@Persona27
+Link : outPort1@Persona27 inPort1@Persona7
+Link : outPort2@Persona7 inPort2@Persona16
+Link : outPort2@Persona16 inPort2@Persona7
+Link : outPort3@Persona7 inPort2@Persona11
+Link : outPort2@Persona11 inPort3@Persona7
+Link : outPort4@Persona7 inPort3@Persona25
+Link : outPort3@Persona25 inPort4@Persona7
+Link : outPort5@Persona7 inPort1@Persona20
+Link : outPort1@Persona20 inPort5@Persona7
+Link : outPort3@Persona9 inPort1@Persona28
+Link : outPort1@Persona28 inPort3@Persona9
+Link : outPort4@Persona9 inPort2@Persona14
+Link : outPort2@Persona14 inPort4@Persona9
+Link : outPort5@Persona9 inPort2@Persona21
+Link : outPort2@Persona21 inPort5@Persona9
+Link : outPort1@Persona10 inPort2@Persona28
+Link : outPort2@Persona28 inPort1@Persona10
+Link : outPort2@Persona10 inPort1@Persona29
+Link : outPort1@Persona29 inPort2@Persona10
+Link : outPort3@Persona10 inPort2@Persona23
+Link : outPort2@Persona23 inPort3@Persona10
+Link : outPort4@Persona10 inPort3@Persona11
+Link : outPort3@Persona11 inPort4@Persona10
+Link : outPort4@Persona11 inPort2@Persona29
+Link : outPort2@Persona29 inPort4@Persona11
+Link : outPort5@Persona11 inPort2@Persona26
+Link : outPort2@Persona26 inPort5@Persona11
+Link : outPort3@Persona13 inPort1@Persona22
+Link : outPort1@Persona22 inPort3@Persona13
+Link : outPort4@Persona13 inPort2@Persona20
+Link : outPort2@Persona20 inPort4@Persona13
+Link : outPort5@Persona13 inPort3@Persona16
+Link : outPort3@Persona16 inPort5@Persona13
+Link : outPort3@Persona14 inPort3@Persona20
+Link : outPort3@Persona20 inPort3@Persona14
+Link : outPort4@Persona16 inPort2@Persona18
+Link : outPort2@Persona18 inPort4@Persona16
+Link : outPort5@Persona16 inPort3@Persona19
+Link : outPort3@Persona19 inPort5@Persona16
+Link : outPort2@Persona17 inPort3@Persona26
+Link : outPort3@Persona26 inPort2@Persona17
+Link : outPort4@Persona19 inPort3@Persona23
+Link : outPort3@Persona23 inPort4@Persona19
+Link : outPort4@Persona20 inPort3@Persona29
+Link : outPort3@Persona29 inPort4@Persona20
+Link : outPort3@Persona21 inPort2@Persona27
+Link : outPort2@Persona27 inPort3@Persona21
+Link : outPort4@Persona21 inPort4@Persona23
+Link : outPort4@Persona23 inPort4@Persona21
 
 [Persona0]
-p : 0.4969176224978212
-influenciabilidad : 0.6114718791795575
-poder_convencimiento : 0.7263398548203165
-tiempo_sillon : 0.5842487042240634
-periodo_medio : 999.8836402868317
+p : -0.5895867926924536
+influenciabilidad : 0.6624677917616675
+poder_convencimiento : 0.5599378442627587
+tiempo_sillon : 0.5344574928058156
+periodo_medio : 997.6326709362991
 grado : 2
 
 [Persona1]
-p : 0.16749384165736578
-influenciabilidad : 0.4690470149945837
-poder_convencimiento : 0.8536442617320401
-tiempo_sillon : 0.6889654128078643
-periodo_medio : 1023.573913038062
-grado : 5
+p : -0.7721286987378962
+influenciabilidad : 0.5640917261525913
+poder_convencimiento : 0.24880517008956593
+tiempo_sillon : 0.3619219155882154
+periodo_medio : 1008.8039357140802
+grado : 2
 
 [Persona2]
-p : -0.19772021509071688
-influenciabilidad : 0.5436633886444482
-poder_convencimiento : 0.6024743477714195
-tiempo_sillon : 0.5004200823711863
-periodo_medio : 1008.0235450560809
-grado : 4
-
-[Persona3]
-p : -0.45819772902046546
-influenciabilidad : 0.6894389547881796
-poder_convencimiento : 0.43854162194334756
-tiempo_sillon : 0.639072729597381
-periodo_medio : 1011.1475691263757
-grado : 5
-
-[Persona4]
-p : 0.5162431158320601
-influenciabilidad : 0.5342077618825402
-poder_convencimiento : 0.5524393509707941
-tiempo_sillon : 0.9344093569769842
-periodo_medio : 999.2633888591782
+p : 0.9454178482124674
+influenciabilidad : 0.3878327275132654
+poder_convencimiento : 0.3592655229903483
+tiempo_sillon : 0.3407553070501839
+periodo_medio : 996.171047613488
 grado : 3
 
+[Persona3]
+p : 0.16721411838144354
+influenciabilidad : 0.6009349500935195
+poder_convencimiento : 0.5037651008331171
+tiempo_sillon : 0.46883050268007004
+periodo_medio : 989.6815649117627
+grado : 4
+
+[Persona4]
+p : -0.5713317749403399
+influenciabilidad : 0.3452224006971193
+poder_convencimiento : 0.6136760323744076
+tiempo_sillon : 0.4117175954545772
+periodo_medio : 1009.1165736826758
+grado : 4
+
 [Persona5]
-p : -0.17947200397250018
-influenciabilidad : 0.7934850973621996
-poder_convencimiento : 0.5105912040031959
-tiempo_sillon : 0.5506413833814091
-periodo_medio : 996.0006435313478
+p : 0.5261744152396732
+influenciabilidad : 0.6870054202508644
+poder_convencimiento : 0.5579966250887402
+tiempo_sillon : 0.5444628700068238
+periodo_medio : 982.3276868437846
 grado : 3
 
 [Persona6]
-p : -0.6705143600126853
-influenciabilidad : 0.49797092885537614
-poder_convencimiento : 0.3845528534041561
-tiempo_sillon : 0.541765871704709
-periodo_medio : 999.1626203768363
-grado : 2
+p : -1.0
+influenciabilidad : 0.6310449502133958
+poder_convencimiento : 0.41105326669202225
+tiempo_sillon : 0.45921171953598616
+periodo_medio : 1013.5997116290499
+grado : 1
 
 [Persona7]
-p : -0.8522652066416667
-influenciabilidad : 0.11657408829553123
-poder_convencimiento : 0.44041384189220484
-tiempo_sillon : 0.3283060208065386
-periodo_medio : 1015.0119424767629
-grado : 3
+p : 0.03842652229498045
+influenciabilidad : 0.7306346880220296
+poder_convencimiento : 0.6998653603602626
+tiempo_sillon : 0.5311650890805528
+periodo_medio : 1020.8989093986165
+grado : 5
 
 [Persona8]
-p : -0.29131509532089167
-influenciabilidad : 0.6022568700520496
-poder_convencimiento : 0.5536078936023121
-tiempo_sillon : 0.7924642707513146
-periodo_medio : 987.4580643383703
-grado : 2
-
-[Persona9]
-p : 0.5624265051129401
-influenciabilidad : 0.641817706628373
-poder_convencimiento : 0.24459023239802474
-tiempo_sillon : 0.3604169997500585
-periodo_medio : 1001.0417468051943
+p : 0.03131211027024819
+influenciabilidad : 0.5025693013484053
+poder_convencimiento : 0.6754458439948743
+tiempo_sillon : 0.46381656067872334
+periodo_medio : 997.0251780757884
 grado : 0
 
+[Persona9]
+p : 0.44843299117440033
+influenciabilidad : 0.37560928733408194
+poder_convencimiento : 0.5673489609952467
+tiempo_sillon : 0.11071333125280902
+periodo_medio : 1008.3303455595595
+grado : 5
+
 [Persona10]
-p : -0.7020865704623085
-influenciabilidad : 0.3718980783807056
-poder_convencimiento : 0.7860561711136698
-tiempo_sillon : 0.7580271534256087
-periodo_medio : 1001.6103408714456
-grado : 2
+p : 0.3570368778104855
+influenciabilidad : 0.6154100091343926
+poder_convencimiento : 0.643212305688416
+tiempo_sillon : 0.17585013876485078
+periodo_medio : 990.761747825792
+grado : 4
 
 [Persona11]
-p : -0.8718481562858102
-influenciabilidad : 0.37696158953513714
-poder_convencimiento : 0.4364597405048173
-tiempo_sillon : 0.16604775741709582
-periodo_medio : 985.2014514799187
-grado : 3
+p : -1.0
+influenciabilidad : 0.3903192145010878
+poder_convencimiento : 0.34888488651873256
+tiempo_sillon : 0.42479720854729475
+periodo_medio : 993.5367359730731
+grado : 5
 
 [Persona12]
-p : -0.27098758319922817
-influenciabilidad : 0.6238244329464255
-poder_convencimiento : 0.5930488902806428
-tiempo_sillon : 0.5588441443048916
-periodo_medio : 1012.127469714254
-grado : 5
+p : -0.5726064905599048
+influenciabilidad : 0.37559700860769185
+poder_convencimiento : 0.22529693301942832
+tiempo_sillon : 0.7323358299900387
+periodo_medio : 1008.948541366163
+grado : 1
 
 [Persona13]
 p : -1.0
-influenciabilidad : 0.3826138433123958
-poder_convencimiento : 0.19292934924152488
-tiempo_sillon : 0.8080779957584225
-periodo_medio : 1007.2867897775614
-grado : 1
-
-[Persona14]
-p : -0.6216307991535691
-influenciabilidad : 0.014628626472673545
-poder_convencimiento : 0.4982795039409829
-tiempo_sillon : 0.6110061642511442
-periodo_medio : 989.0083470923823
+influenciabilidad : 0.4674899989608354
+poder_convencimiento : 0.8397103020979598
+tiempo_sillon : 0.3751371823851425
+periodo_medio : 990.4443589469539
 grado : 5
 
+[Persona14]
+p : 0.7550267573924199
+influenciabilidad : 0.4913037255838327
+poder_convencimiento : 0.746659644057972
+tiempo_sillon : 0.29020658906048136
+periodo_medio : 990.0058452006087
+grado : 3
+
 [Persona15]
-p : 0.6567403731934187
-influenciabilidad : 0.5915645761682056
-poder_convencimiento : 0.5059372596507562
-tiempo_sillon : 0.5256938572000304
-periodo_medio : 987.6411369733202
+p : 0.6760612581007766
+influenciabilidad : 0.14814597586556805
+poder_convencimiento : 0.6369260168451449
+tiempo_sillon : 0.505908181217807
+periodo_medio : 1004.7336430397562
 grado : 1
 
 [Persona16]
-p : -0.20229512707944533
-influenciabilidad : 0.32566078029144135
-poder_convencimiento : 0.4212394505887851
-tiempo_sillon : 0.5087685311887289
-periodo_medio : 1002.5357301927379
-grado : 0
-
-[Persona17]
-p : -0.3202471936370515
-influenciabilidad : 0.5896187205057649
-poder_convencimiento : 0.421142922519207
-tiempo_sillon : 0.4363939457282109
-periodo_medio : 991.4829503036437
-grado : 4
-
-[Persona18]
-p : -0.21958628968106428
-influenciabilidad : 0.9265039151101379
-poder_convencimiento : 0.6317583445895393
-tiempo_sillon : 0.5287436871939986
-periodo_medio : 999.7290131239861
-grado : 4
-
-[Persona19]
-p : -0.6430740947847989
-influenciabilidad : 0.282622159976495
-poder_convencimiento : 0.40446147447783826
-tiempo_sillon : 0.4023724353045813
-periodo_medio : 1004.0538954363626
+p : 0.010391348308200737
+influenciabilidad : 0.26901772499534404
+poder_convencimiento : 0.8153333526447031
+tiempo_sillon : 0.5493346849481755
+periodo_medio : 1011.2281352837101
 grado : 5
 
+[Persona17]
+p : 0.7018059926186262
+influenciabilidad : 0.19536956975448844
+poder_convencimiento : 0.27496307527051644
+tiempo_sillon : 0.7408735490713179
+periodo_medio : 980.6748264755913
+grado : 2
+
+[Persona18]
+p : -0.5406202325875358
+influenciabilidad : 0.21513533447552025
+poder_convencimiento : 0.7875085856211321
+tiempo_sillon : 0.6934631649324534
+periodo_medio : 1001.1146560941223
+grado : 2
+
+[Persona19]
+p : -0.00665874593700261
+influenciabilidad : 0.5239860818835713
+poder_convencimiento : 0.6471238457732178
+tiempo_sillon : 0.5574294082324088
+periodo_medio : 991.8599069227793
+grado : 4
+
 [Persona20]
-p : -0.2517425119320232
-influenciabilidad : 0.07944802871801132
-poder_convencimiento : 0.4523572082564026
-tiempo_sillon : 0.41428009206938554
-periodo_medio : 996.6843539691861
-grado : 1
+p : 0.052331102473207075
+influenciabilidad : 0.7591232605791738
+poder_convencimiento : 0.36126965360806274
+tiempo_sillon : 0.6668315560071874
+periodo_medio : 1015.4881298710945
+grado : 4
 
 [Persona21]
-p : -0.6238156267630682
-influenciabilidad : 0.8198036303865543
-poder_convencimiento : 0.5625774925066
-tiempo_sillon : 0.712085433837665
-periodo_medio : 1009.7008030467467
-grado : 1
+p : 0.8891294637936655
+influenciabilidad : 0.6037407457594403
+poder_convencimiento : 0.6139447322814953
+tiempo_sillon : 0.7542727480941167
+periodo_medio : 995.1404010920623
+grado : 4
 
 [Persona22]
-p : 0.6186146045542645
-influenciabilidad : 0.4663330714558971
-poder_convencimiento : 0.5921136112379854
-tiempo_sillon : 0.732061457722751
-periodo_medio : 1008.4621322480255
-grado : 2
+p : 0.4270085291527924
+influenciabilidad : 0.5517479666401707
+poder_convencimiento : 0.5032536998032342
+tiempo_sillon : 0.5814321538282473
+periodo_medio : 1004.6354079864317
+grado : 1
 
 [Persona23]
-p : 0.005885369190256382
-influenciabilidad : 0.29121659206833717
-poder_convencimiento : 0.5024931329498574
-tiempo_sillon : 0.6177193517090048
-periodo_medio : 1007.1642518791416
-grado : 2
+p : 1.0
+influenciabilidad : 0.16346196414598047
+poder_convencimiento : 0.4818070191409814
+tiempo_sillon : 0.4217278118507949
+periodo_medio : 1006.0562834952705
+grado : 4
 
 [Persona24]
-p : -0.1007476229157069
-influenciabilidad : 0.6855507605983416
-poder_convencimiento : 0.4395121144178415
-tiempo_sillon : 0.5211039307409007
-periodo_medio : 1004.5477919090616
+p : 0.03832127518847965
+influenciabilidad : 0.5844389994845018
+poder_convencimiento : 0.539298003584425
+tiempo_sillon : 0.5678670982826262
+periodo_medio : 1012.0650092724453
 grado : 1
 
 [Persona25]
-p : 0.5392020817727551
-influenciabilidad : 0.8152412710291481
-poder_convencimiento : 0.6338591702179893
-tiempo_sillon : 0.7306986223902359
-periodo_medio : 1003.1837860372162
-grado : 5
+p : 0.4581270813792769
+influenciabilidad : 0.4726032087979811
+poder_convencimiento : 0.012998032527504755
+tiempo_sillon : 0.43157536072192976
+periodo_medio : 982.4473783756678
+grado : 3
 
 [Persona26]
-p : -0.16038987534140822
-influenciabilidad : 0.5259501165300808
-poder_convencimiento : 0.38834558564338545
-tiempo_sillon : 0.6888969366449601
-periodo_medio : 1001.7568766647278
-grado : 2
+p : -0.7702921416546482
+influenciabilidad : 0.41005072463301306
+poder_convencimiento : 0.4580448220776305
+tiempo_sillon : 0.8170728304160508
+periodo_medio : 988.2868399422666
+grado : 3
 
 [Persona27]
-p : 0.5310360036670753
-influenciabilidad : 0.6017428185842513
-poder_convencimiento : 0.5956351621153884
-tiempo_sillon : 0.49665292816670964
-periodo_medio : 991.3003343605798
-grado : 0
+p : -0.7267413340901415
+influenciabilidad : 0.30375243651181866
+poder_convencimiento : 0.05670642804519371
+tiempo_sillon : 0.7505562286063157
+periodo_medio : 1005.5622440217322
+grado : 2
 
 [Persona28]
-p : -0.6253021084338626
-influenciabilidad : 0.5402403006876006
-poder_convencimiento : 0.7673661975105832
-tiempo_sillon : 0.5027118190467907
-periodo_medio : 1003.0712840832992
+p : -0.46808304218829283
+influenciabilidad : 0.3144267653654046
+poder_convencimiento : 0.3401463776455612
+tiempo_sillon : 0.41295286401670417
+periodo_medio : 1003.5030564515923
 grado : 2
 
 [Persona29]
-p : 1.0
-influenciabilidad : 0.20396824875858294
-poder_convencimiento : 0.6248904514363011
-tiempo_sillon : 0.3881275954740876
-periodo_medio : 1007.9232223666738
-grado : 5
-
-[Medio0]
-P : 1
-Periodo_de_emision : 60
-
-[Medio1]
-P : 1
-Periodo_de_emision : 60
-
-[Medio2]
-P : -1
-Periodo_de_emision : 60
+p : 0.39571914990217455
+influenciabilidad : 0.4931439527306762
+poder_convencimiento : 0.45196872990413806
+tiempo_sillon : 0.8487085494496402
+periodo_medio : 1002.0432237884751
+grado : 3
 
 [generador]
 distribution : constant
-value : 60
+value : 3600
 init : 1
 increment : 0
