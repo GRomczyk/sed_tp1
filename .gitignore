@@ -5,6 +5,7 @@ src/.ipynb_checkpoints
 out/.ipynb_checkpoints
 model/.ipynb_checkpoints
 tests/*
+sed/*
 !tests/*.ma
 !tests/*.out
 !tests/*.ev
