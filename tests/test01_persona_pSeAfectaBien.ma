@@ -1,0 +1,21 @@
+[Top]
+%en este test esperamos que el p quede en %0.5(p_inicial)+0.4(influenciabilidad)*0.2(poderDeConvencimientoAjeno)*
+%(1-|(0.5(p)- -1(p*))/2|³)³ * (-1(p*) - 0.5(p)) = 0.476812
+%lo que esta entre () es el significado del valor
+components : P1@Persona
+out : out_port1 info_out1
+in : in_port1 info
+
+Link : in_port1 inPort1@P1
+Link : info infoRequest@P1
+
+Link : outPort1@P1 out_port1
+Link : outInfo@P1 info_out1
+
+[P1]
+p : 0.5
+influenciabilidad : 0.4
+poder_convencimiento : 0.2
+tiempo_sillon : 1.0
+grado : 1
+periodo_medio : 60000000
