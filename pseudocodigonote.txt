@@ -1,0 +1,50 @@
+$\delta_{ext}(s,e,x)${
+    if(!(this -> estoyRespondiendo)){
+        if(esperandoRespuesta && x.port == puertoEsperado){
+        P = nuevoP(this->P,this -> influenciabilidad x.msg[PoderConvencimiento]);
+        esperandoRespuesta = false;
+        holdin(active, this -> tiempoDistribucionExponencial );      
+        } else {
+        if(!esperandoRespuesta){
+            if(x.port <= this -> grado){
+                this -> pGuarddo = this-> P;
+                this -> p = nuevoP(this->P,this -> influenciabilidad x.msg[PoderConvencimiento]);
+                holdin(active,0);
+                estoyRespondiendo = true;
+            }else {
+                recibeNoticia = probabilidadDeEscucharNoticia(this->p, x.P);
+                if(recibeNoticia) this-> P = nuevoP(this->P,this -> influenciabilidad x.msg[PoderConvencimiento]);
+                holdin(active, this -> tiempoDistribucionExponencial);
+            }
+        }
+        }       
+    }    
+}
+
+$\delta_{int}(s)${
+    
+    if(estoyRespondiendo){
+        estoyRespondiendo = false;
+        holdin(active, this -> tiempoDistribucionExponencial);
+    } else {
+        if(esperandoRespuesta){
+            esperandoRespuesta = false;
+            holdin(active, this -> tiempoDistribucionExponencial);
+        }else{
+            esperandoRespuesta = true;
+            holdin(active, epsilon);
+        }  
+    }
+}
+
+
+outPut(s){
+    if(estoyRespondiendo){
+        sendOutPut(time, x.port ,<this->Pguardado, this->Pc, true>);    
+    }else{
+        int puertoSalida = funcionUniforme(g) 						// g : [1,g]
+        senOutput(time,puertoSalida,<this->p,this->Pc,false>)
+        esperandoRespuesta = true
+        puertoEsperado = puertoSalida
+    }
+}
