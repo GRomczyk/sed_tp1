@@ -1,0 +1,195 @@
+Persona = < X, S, Y, delta_int, delta_ext, lambda, ta > 
+
+X = {(p,v) | p ∈ IPorts, v ∈ X_p} U {(infoRequest,1)}
+con IPorts = {inMedios, inPort1, inPort2, inPort3, inPort4, inPort5} y X_p = {x ∈ IR / -1 <= x <= 1}
+
+Y = {(p,v) | p ∈ OPorts, v ∈ Y_p} U {(outInfo,v) | v ∈ Y_p }
+con OPorts = {outPort1, outPort2, outPort3, outPort4, outPort5} e Y_p = {y ∈ IR / -1 <= y <= 1}
+
+S = <esperandoRespuesta, estoyRespondiendo, P, Pguardado, puertoDeConexion> 
+
+delta_ext(s,e,x){
+    if(!(this -> estoyRespondiendo)){
+        if(esperandoRespuesta && x.port == puertoEsperado){
+        P = nuevoP(this->P,this -> influenciabilidad x.msg[PoderConvencimiento]);
+        esperandoRespuesta = false;
+        holdin(active, this -> tiempoDistribucionExponencial );      
+        } else {
+        if(!esperandoRespuesta){
+            if(x.port <= this -> grado){
+                this -> pGuarddo = this-> P;
+                this -> p = nuevoP(this->P,this -> influenciabilidad x.msg[PoderConvencimiento]);
+                holdin(active,0);
+                estoyRespondiendo = true;
+            }else {
+                recibeNoticia = probabilidadDeEscucharNoticia(this->p, x.P);
+                if(recibeNoticia) this-> P = nuevoP(this->P,this -> influenciabilidad x.msg[PoderConvencimiento]);
+                holdin(active, this -> tiempoDistribucionExponencial);
+            }
+        }
+        }       
+    }    
+}
+
+delta_int(s){   
+    if(estoyRespondiendo){
+        estoyRespondiendo = false;
+        holdin(active, this -> tiempoDistribucionExponencial);
+    } else {
+        if(esperandoRespuesta){
+            esperandoRespuesta = false;
+            holdin(active, this -> tiempoDistribucionExponencial);
+        }else{
+            esperandoRespuesta = true;
+            holdin(active, epsilon);
+        }  
+    }
+}
+
+lambda(s){
+    if(estoyRespondiendo){
+        sendOutPut(time, x.port ,<this->Pguardado, this->Pc, true>);    
+    }else{
+        int puertoSalida = funcionUniforme(g) 						// g : [1,5]
+        senOutput(time,puertoSalida,<this->p,this->Pc,false>)
+        esperandoRespuesta = true
+        puertoEsperado = puertoSalida
+    }
+}
+
+/////////////////////////////////////////////////////
+
+Medio = < X, Y, S, delta_int, delta_ext, lambda, ta > 
+
+X = ø
+
+Y = {(out,v) | v ∈ Y_p} 
+con Y_p = {y ∈ IR / -1 <= y <= 1}
+
+S = state ∈ {active,passive}
+
+delta_int(s){    
+	holdIn(active, periodo_de_emision);
+}
+
+delta_ext(s){    
+}
+
+lambda(s){
+	if (this->P == 0){
+		randomP = random(this->P,0.5) //Numero random elegido mediante distribucion normal con media en this->P y varianza 0.1 
+		sendOutPut(time, out, <randomP,this->PoderDeConvencimiento>)
+	}else{
+		randomP = random(this->P,0.1) //Numero random elegido mediante distribucion normal con media en this->P y varianza 0.5
+		sendOutPut(time, out, <randomP,this->PoderDeConvencimiento>)
+	}
+}
+
+/////////////////////////////////////////////////////
+
+Generador = < X, Y, S, delta_int, delta_ext, lambda, ta > 
+
+X = ø
+
+Y = {(out,1)} 
+
+S = state ∈ {active,passive}
+
+delta_int(s){    
+	holdIn(active, 36000);
+}
+
+delta_ext(s){    
+}
+
+lambda(s){
+	sendOutPut(time, out, 1)
+}
+
+/////////////////////////////////////////////////////
+
+M_Sociedad = < X, Y, D, {Mi}, EIC, EOC, IC, select > 
+
+X = {(infoRequest,1),(inMedios,v)}
+con v ∈ [-1,1]
+
+Y = {(info_out0,v), (info_out1,v), (info_out2,v), ..., (info_outT,v)} 
+donde T representa el número total de modelos Persona presentes en el modelo Sociedad y v ∈ [-1,1]
+
+D = {Persona0, Persona1, Persona2, ..., PersonaT}
+
+M_D = {M_Persona0, M_Persona1, M_Persona2, ..., M_PersonaT} (donde M_Personai ∀i=0,1,...,T es un modelo atómico)
+
+EIC = { ((Sociedad,inMedios),(j,inMedios)) | j ∈ D } U { ((Sociedad,infoRequest) , (j,infoRequest)) | j ∈ D }
+
+EOC = { ((j,outInfo),(Sociedad,infoOutj)) | j ∈ D } 
+
+IC ⊆ { ((j1,outPortk1),(j2,outPortk2)) | j1,j2 ∈ D y k1,k2 ∈ {1,2,3,4,5} }
+ 
+select = {Persona0, Persona1, Persona2, ..., PersonaT}
+
+/////////////////////////////////////////////////////
+
+M_TopModel = < X, Y, D, {Mi}, EIC, EOC, IC, select > 
+
+X = ø
+
+Y = {(info_out0,v), (info_out1,v), (info_out2,v), ..., (info_outT,v)}
+donde T representa el número total de modelos Persona presentes en el modelo Sociedad y v ∈ [-1,1]
+
+D = {Medio0, Medio1, ..., MedioM, Generador, Sociedad}
+donde M representa el número total de modelos Medio de comunicación. 
+
+M_D = {M_Medio0, M_medio1, ..., M_MedioM, M_Generador, M_Sociedad} (donde M_Medioi ∀i=0,1,...,M es un modelo atómico, M_Generador es un modelo atómico y M_Sociedad es un modelo acoplado)
+
+EIC = ø
+
+EOC = {((Sociedad,info_out0),(Self,info_out0)) , ((Sociedad,info_out1),(Self,info_out1)) , ((Sociedad,info_out2),(Self,info_out2) , ... , ((Sociedad,info_outT),(Self,info_outT))}
+
+IC = {((Generador,out),(Sociedad,infoRequest)) , ((Medio0,out),(Sociedad,inMedios)) , ((Medio1,out),(Sociedad,inMedios)) , ((Medio2,out),(Sociedad,inMedios)) , ... ,  ((inMediosM,out),(Sociedad,inMedios))}
+
+select = {Sociedad, Generador, Medio0, Medio1, Medio2, ...., MedioM}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
